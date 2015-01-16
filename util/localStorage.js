@@ -36,7 +36,13 @@ define(function () {
                     res[storage.key(i)] = localStorage.getItem(storage.key(i));
                 };
             };
-            return res;
+
+            if (res.length) {
+                return res;
+            } else {
+                console.log('this brower has no any localStorage about this website now.')
+            }
+            
 
         } else {
             Console.log('sorry, your browser dont support localStorge.');

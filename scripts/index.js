@@ -15,8 +15,11 @@ require.config({
 	}
 });
 
-requirejs ( ['localStorage'], function (ls) {
-	var a = ls.showAllStorage();
+requirejs ( ['localStorage', 'getUrlSearch'], function (ls, gus) {
 
-	console.log(a);
+	console.log( ls.showAllStorage() );
+
+	var gus = gus.getUrlSearch();
+	console.log(gus['tuzkiss']);
+
 });

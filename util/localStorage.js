@@ -40,12 +40,14 @@ define(function () {
             if (res.length) {
                 return res;
             } else {
-                console.log('this brower has no any localStorage about this website now.')
+                console.log('this brower has no any localStorage about this website now.');
+                return null;
             }
             
 
         } else {
             Console.log('sorry, your browser dont support localStorge.');
+            return null;
         };
     };
 

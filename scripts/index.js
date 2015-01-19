@@ -15,11 +15,12 @@ require.config({
 	}
 });
 
-requirejs ( ['localStorage', 'getUrlSearch'], function (ls, gus) {
+requirejs ( ['localStorage', 'urlSearch', 'browserType'], function (ls, gus, bt) {
 
-	console.log( ls.showAllStorage() );
+	document.write( 'localStorage : ' + ls.showAllStorage() );
 
-	var gus = gus.getUrlSearch();
-	console.log(gus['tuzkiss']);
+	document.write( '<br/>urlSearch : ' + gus.getUrlSearch() );
+	
+
 
 });

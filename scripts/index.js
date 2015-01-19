@@ -15,12 +15,17 @@ require.config({
 	}
 });
 
-requirejs ( ['localStorage', 'urlSearch', 'browserType'], function (ls, gus, bt) {
+requirejs ( ['localStorage', 'urlSearch', 'browserType', 'arraySort'], function (ls, gus, bt, as) {
 
-	document.write( 'localStorage : ' + ls.showAllStorage() );
+	var storage = ls.showAllStorage();
+	for ( var s in storage)
+		document.write( 'localStorage :  ' + s + '  ' + ls.getStorage(s) + '<br/>' );
 
-	document.write( '<br/>urlSearch : ' + gus.getUrlSearch() );
-	
+	document.write( 'urlSearch : ' + gus.getUrlSearch() + '<br/>' );
 
+	var array = ['1', '3', '5', '4', '2'];
+	document.write( 'arraySortBefore : ' + array + '<br/>' );
+	document.write( 'arraySortAfter  : ' + as.numberSort(array, 123) + '<br/>' );
+	 
 
 });

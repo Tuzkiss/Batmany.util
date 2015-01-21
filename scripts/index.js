@@ -6,8 +6,6 @@
 *     last modify date on 2015-1-16
 */
 
-console.log( new Date().toLocaleString() + ' load index js success.');
-
 // requirejs config
 requirejs.config({
 	baseUrl : 'util',
@@ -23,7 +21,7 @@ requirejs(['index/domReady'], function (domReady) {
 	domReady(function () {
 
 		// require module js
-		require( ['localStorage', 'urlSearch', 'browserType', 'arraySort'], function (ls, gus, bt, as) {
+		require( ['localStorage', 'urlSearch', 'browserType', 'arraySort', 'test'], function (ls, gus, bt, as, ts) {
 
 			// do something
 			var storage = ls.showAllStorage();
@@ -36,7 +34,6 @@ requirejs(['index/domReady'], function (domReady) {
 			document.write( 'arraySortBefore : ' + array + '<br/>' );
 			document.write( 'arraySortAfter  : ' + as.numberSort(array, 123) + '<br/>' );
 			 
-
 		});
 	});
 	

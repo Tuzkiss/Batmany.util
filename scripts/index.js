@@ -8,24 +8,37 @@
 
 console.log( new Date().toLocaleString() + ' load index js success.');
 
-require.config({
+// requirejs config
+requirejs.config({
 	baseUrl : 'util',
-	path : {
-
+	paths : {
+		index : '../scripts'
 	}
 });
 
-requirejs ( ['localStorage', 'urlSearch', 'browserType', 'arraySort'], function (ls, gus, bt, as) {
+// require main javascript
+requirejs(['index/domReady'], function (domReady) {
 
-	var storage = ls.showAllStorage();
-	for ( var s in storage)
-		document.write( 'localStorage :  ' + s + '  ' + ls.getStorage(s) + '<br/>' );
+	// dom ready
+	domReady(function () {
 
-	document.write( 'urlSearch : ' + gus.getUrlSearch() + '<br/>' );
+		// require module js
+		require( ['localStorage', 'urlSearch', 'browserType', 'arraySort'], function (ls, gus, bt, as) {
 
-	var array = ['1', '3', '5', '4', '2'];
-	document.write( 'arraySortBefore : ' + array + '<br/>' );
-	document.write( 'arraySortAfter  : ' + as.numberSort(array, 123) + '<br/>' );
-	 
+			// do something
+			var storage = ls.showAllStorage();
+			for ( var s in storage)
+				document.write( 'localStorage :  ' + s + '  ' + ls.getStorage(s) + '<br/>' );
 
+			document.write( 'urlSearch : ' + gus.getUrlSearch() + '<br/>' );
+
+			var array = ['1', '3', '5', '4', '2'];
+			document.write( 'arraySortBefore : ' + array + '<br/>' );
+			document.write( 'arraySortAfter  : ' + as.numberSort(array, 123) + '<br/>' );
+			 
+
+		});
+	});
+	
 });
+

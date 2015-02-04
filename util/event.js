@@ -29,8 +29,13 @@ define(function () {
 		};
 	};
 
+	var e = e || window.event;
+	var target = e.target || e.srcElement;
+
+
 	return {
 		bind : bind,
 		unbind : unbind
 	}
 });
+
